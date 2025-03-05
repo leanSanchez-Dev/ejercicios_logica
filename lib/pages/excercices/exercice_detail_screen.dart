@@ -2,6 +2,7 @@ import 'dart:typed_data';
 import 'package:ejercicios_logica/pages/excercices/exercice_01.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_02.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_03.dart';
+import 'package:ejercicios_logica/pages/excercices/exercice_04.dart';
 import 'package:ejercicios_logica/utils/data/morse_code.dart';
 import 'package:http/http.dart' as http;
 import 'package:image/image.dart' as img;
@@ -107,7 +108,7 @@ class _ExerciceDetailScreenState extends State<ExerciceDetailScreen> {
       case 3:
         return Expanded(child: Exercice03());
       case 4:
-        return Expanded(child: exercice4());
+        return Expanded(child: Exercice04());
       case 5:
         return Expanded(child: exercice5());
       case 6:
@@ -127,65 +128,6 @@ class _ExerciceDetailScreenState extends State<ExerciceDetailScreen> {
       default:
         return Center(child: Text('No hay contenido para este ejercicio'));
     }
-  }
-
-  bool isPrime(int number) {
-    if (number < 2) {
-      return false;
-    } else {
-      for (int i = 2; i <= number / 2; i++) {
-        if (number % i == 0) {
-          return false;
-        }
-      }
-
-      return true;
-    }
-
-    // if (number < 2) return false;
-    // for (int i = 2; i * i <= number; i++) {
-    //   if (number % i == 0) return false;
-    // }
-    // return true;
-  }
-
-  exercice4() {
-    List<int> primes = [];
-    for (int i = 2; i <= 100; i++) {
-      if (isPrime(i)) {
-        primes.add(i);
-      }
-    }
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 10),
-        Expanded(
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 5,
-              crossAxisSpacing: 2,
-              mainAxisSpacing: 2,
-            ),
-            shrinkWrap: true,
-            itemCount: primes.length,
-            itemBuilder: (context, index) {
-              return Card(
-                child: Center(
-                  child: Text(
-                    primes[index].toString(),
-                    overflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 14),
-                  ),
-                ),
-              );
-            },
-          ),
-        ),
-      ],
-    );
   }
 
   double calcularArea(
