@@ -1,5 +1,5 @@
 import 'package:ejercicios_logica/models/exercice.dart';
-import 'package:ejercicios_logica/pages/exercice_list_screen.dart';
+import 'package:ejercicios_logica/pages/excercices/exercice_list_screen.dart';
 import 'package:ejercicios_logica/utils/data/data_exercice.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:ejercicios_logica/pages/excercices/exercice_01.dart';
 import 'package:ejercicios_logica/utils/data/morse_code.dart';
 import 'package:http/http.dart' as http;
 import 'package:image/image.dart' as img;
@@ -98,7 +99,7 @@ class _ExerciceDetailScreenState extends State<ExerciceDetailScreen> {
   exerciceContentWidget(int id) {
     switch (id) {
       case 1:
-        return Expanded(child: exercice1());
+        return Expanded(child: Exercice01());
       case 2:
         return Expanded(child: exercice2());
       case 3:
@@ -124,59 +125,6 @@ class _ExerciceDetailScreenState extends State<ExerciceDetailScreen> {
       default:
         return Center(child: Text('No hay contenido para este ejercicio'));
     }
-  }
-
-  exercice1() {
-    List<Map<String, dynamic>> results = [];
-    Color color = Colors.lightBlueAccent;
-    Color colorfizzbuzz = Colors.greenAccent;
-    Color colorfizz = Colors.redAccent;
-    Color colorbuzz = Colors.deepPurpleAccent;
-    for (int i = 1; i <= 100; i++) {
-      if (i % 3 == 0 && i % 5 == 0) {
-        results.add({"text": "fizzbuzz", "color": colorfizzbuzz});
-      } else if (i % 3 == 0) {
-        results.add({"text": "fizz", "color": colorfizz});
-      } else if (i % 5 == 0) {
-        results.add({"text": "buzz", "color": colorbuzz});
-      } else {
-        results.add({"text": i.toString(), "color": color});
-      }
-    }
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 10),
-        Row(
-          children: [
-            Row(children: [Icon(Icons.circle, color: color), Text('normal')]),
-            const SizedBox(width: 8),
-            Row(children: [Icon(Icons.circle, color: colorfizz), Text('fizz')]),
-            const SizedBox(width: 8),
-            Row(children: [Icon(Icons.circle, color: colorbuzz), Text('buzz')]),
-          ],
-        ),
-        const SizedBox(height: 10),
-        Expanded(
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: results.length,
-            itemBuilder: (context, index) {
-              return Card(
-                color: results[index]["color"],
-                child: ListTile(
-                  title: Text(
-                    results[index]["text"],
-                    style: const TextStyle(fontSize: 16),
-                  ),
-                ),
-              );
-            },
-          ),
-        ),
-      ],
-    );
   }
 
   exercice2() {

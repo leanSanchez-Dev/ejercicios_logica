@@ -1,5 +1,5 @@
 import 'package:ejercicios_logica/models/exercice.dart';
-import 'package:ejercicios_logica/pages/exercice_detail_screen.dart';
+import 'package:ejercicios_logica/pages/excercices/exercice_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class ExerciceListScreen extends StatefulWidget {
