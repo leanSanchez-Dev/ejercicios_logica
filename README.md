@@ -1,16 +1,33 @@
-# ejercicios_logica
+# 🚀 Ejercicios de Lógica en Programación
 
-A new Flutter project.
+📌 **Repositorio con soluciones a los ejercicios de lógica de programación** del sitio [Retos de Programación](https://retosdeprogramacion.com/ejercicios/) de **Brais Moure**.
 
-## Getting Started
+🎯 **Objetivo:** Mejorar mis habilidades de resolución de problemas y fortalecer mis conocimientos en lógica de programación.
 
-This project is a starting point for a Flutter application.
+## 📂 Estructura del Proyecto
 
-A few resources to get you started if this is your first Flutter project:
+- Cada reto tiene su propia carpeta con la solución en diferentes lenguajes de programación.
+- Los nombres de las carpetas indican el número y nombre del reto.
+- Se incluyen explicaciones y comentarios en el código para entender la solución.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 💡 Retos Resueltos
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- ✅ **Reto 01**: "Título del reto 1"
+- ✅ **Reto 02**: "Título del reto 2"
+- 🔄 **Próximo**: "Título del siguiente reto en progreso"
+
+_(Se irán actualizando a medida que avance en los ejercicios.)_
+
+## 🛠️ Tecnologías Usadas
+
+- Lenguajes: Python, JavaScript, C++, etc.
+- Herramientas: Git, GitHub, VS Code
+
+## 📌 Cómo Clonar el Repositorio
+
+```bash
+git clone https://github.com/leanSanchez-Dev/ejercicios_logica.git
+cd ejercicios_logica
+
+📝 Autor: leanSanchez-Dev
+```
