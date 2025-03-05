@@ -1,12 +1,10 @@
-import 'dart:typed_data';
 import 'package:ejercicios_logica/pages/excercices/exercice_01.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_02.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_03.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_04.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_05.dart';
+import 'package:ejercicios_logica/pages/excercices/exercice_06.dart';
 import 'package:ejercicios_logica/utils/data/morse_code.dart';
-import 'package:http/http.dart' as http;
-import 'package:image/image.dart' as img;
 
 import 'package:ejercicios_logica/models/exercice.dart';
 import 'package:flutter/material.dart';
@@ -113,7 +111,7 @@ class _ExerciceDetailScreenState extends State<ExerciceDetailScreen> {
       case 5:
         return Expanded(child: Exercice05());
       case 6:
-        return Expanded(child: exercice6());
+        return Expanded(child: Exercice06());
       case 7:
         return Expanded(child: exercice7());
       case 8:
@@ -129,86 +127,6 @@ class _ExerciceDetailScreenState extends State<ExerciceDetailScreen> {
       default:
         return Center(child: Text('No hay contenido para este ejercicio'));
     }
-  }
-
-  String aspectRatio = '';
-  TextEditingController urlController = TextEditingController();
-
-  String calculateAspectRatio(int width, int height) {
-    int gcd = findGCD(width, height);
-    int numerator = width ~/ gcd;
-    int denominator = height ~/ gcd;
-    return '$numerator:$denominator';
-  }
-
-  Future<void> fetchImageSize(String url) async {
-    try {
-      final response = await http.get(Uri.parse(url));
-      if (response.statusCode == 200) {
-        Uint8List bytes = response.bodyBytes;
-        img.Image? image = img.decodeImage(bytes);
-        if (image != null) {
-          setState(() {
-            aspectRatio = calculateAspectRatio(image.width, image.height);
-          });
-        } else {
-          setState(() {
-            aspectRatio = 'Error: No se pudo decodificar la imagen.';
-          });
-        }
-      } else {
-        setState(() {
-          aspectRatio = 'Error al cargar la imagen: ${response.statusCode}';
-        });
-      }
-    } catch (e) {
-      setState(() {
-        aspectRatio = 'Error: $e';
-      });
-    }
-  }
-
-  int findGCD(int a, int b) {
-    while (b != 0) {
-      int temp = b;
-      b = a % b;
-      a = temp;
-    }
-    return a;
-  }
-
-  exercice6() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            'Calcular Aspect Ratio de una Imagen',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 10),
-          TextField(
-            controller: urlController,
-            decoration: const InputDecoration(
-              labelText: 'Ingrese la URL de la imagen',
-              border: OutlineInputBorder(),
-            ),
-          ),
-          const SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: () => fetchImageSize(urlController.text),
-            child: const Text('Calcular Aspect Ratio'),
-          ),
-          const SizedBox(height: 10),
-          if (aspectRatio.isNotEmpty)
-            Text(
-              'Aspect Ratio: $aspectRatio',
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-        ],
-      ),
-    );
   }
 
   String reverseString(String text) {
