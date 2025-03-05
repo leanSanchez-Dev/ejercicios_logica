@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:ejercicios_logica/pages/excercices/exercice_01.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_02.dart';
+import 'package:ejercicios_logica/pages/excercices/exercice_03.dart';
 import 'package:ejercicios_logica/utils/data/morse_code.dart';
 import 'package:http/http.dart' as http;
 import 'package:image/image.dart' as img;
@@ -104,7 +105,7 @@ class _ExerciceDetailScreenState extends State<ExerciceDetailScreen> {
       case 2:
         return Expanded(child: Exercice02());
       case 3:
-        return Expanded(child: exercice3());
+        return Expanded(child: Exercice03());
       case 4:
         return Expanded(child: exercice4());
       case 5:
@@ -126,44 +127,6 @@ class _ExerciceDetailScreenState extends State<ExerciceDetailScreen> {
       default:
         return Center(child: Text('No hay contenido para este ejercicio'));
     }
-  }
-
-  exercice3() {
-    List<int> results = [0, 1];
-
-    for (int i = 2; i < 50; i++) {
-      results.add(results[i - 1] + results[i - 2]);
-    }
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(height: 10),
-        Expanded(
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 5,
-              crossAxisSpacing: 2,
-              mainAxisSpacing: 2,
-            ),
-            shrinkWrap: true,
-            itemCount: results.length,
-            itemBuilder: (context, index) {
-              return Card(
-                child: ListTile(
-                  title: Text(
-                    results[index].toString(),
-                    overflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 14),
-                  ),
-                ),
-              );
-            },
-          ),
-        ),
-      ],
-    );
   }
 
   bool isPrime(int number) {
