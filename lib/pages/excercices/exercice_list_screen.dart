@@ -166,6 +166,7 @@ class _ExerciceListScreenState extends State<ExerciceListScreen> {
               },
             ),
           ),
+          SizedBox(height: 10),
         ],
       ),
     );
