@@ -6,6 +6,7 @@ import 'package:ejercicios_logica/pages/excercices/exercice_05.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_06.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_07.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_08.dart';
+import 'package:ejercicios_logica/pages/excercices/exercice_09.dart';
 import 'package:ejercicios_logica/utils/data/morse_code.dart';
 
 import 'package:ejercicios_logica/models/exercice.dart';
@@ -119,7 +120,7 @@ class _ExerciceDetailScreenState extends State<ExerciceDetailScreen> {
       case 8:
         return Expanded(child: Exercice08());
       case 9:
-        return Expanded(child: exercice9());
+        return Expanded(child: Exercice09());
       case 10:
         return Expanded(child: exercice10());
       case 11:
@@ -129,57 +130,6 @@ class _ExerciceDetailScreenState extends State<ExerciceDetailScreen> {
       default:
         return Center(child: Text('No hay contenido para este ejercicio'));
     }
-  }
-
-  String decimalToBinary(int number) {
-    if (number == 0) return "0";
-    String binary = "";
-    while (number > 0) {
-      binary = (number % 2).toString() + binary;
-      number ~/= 2;
-    }
-    return binary;
-  }
-
-  String binaryResult = "";
-  TextEditingController decimalController = TextEditingController();
-
-  exercice9() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Convertir Decimal a Binario',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 10),
-        TextField(
-          controller: decimalController,
-          decoration: InputDecoration(
-            labelText: 'Ingrese un número decimal',
-            border: OutlineInputBorder(),
-          ),
-          keyboardType: TextInputType.number,
-        ),
-        const SizedBox(height: 10),
-        ElevatedButton(
-          onPressed: () {
-            setState(() {
-              binaryResult = decimalToBinary(
-                int.tryParse(decimalController.text) ?? 0,
-              );
-            });
-          },
-          child: const Text('Convertir a Binario'),
-        ),
-        const SizedBox(height: 10),
-        if (binaryResult.isNotEmpty)
-          Text(
-            'Binario: $binaryResult',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-      ],
-    );
   }
 
   String textToMorse(String input) {
