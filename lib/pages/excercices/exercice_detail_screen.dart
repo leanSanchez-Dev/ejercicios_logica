@@ -7,9 +7,10 @@ import 'package:ejercicios_logica/pages/excercices/exercice_06.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_07.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_08.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_09.dart';
-import 'package:ejercicios_logica/utils/data/morse_code.dart';
+import 'package:ejercicios_logica/pages/excercices/exercice_10.dart';
 
 import 'package:ejercicios_logica/models/exercice.dart';
+import 'package:ejercicios_logica/pages/excercices/exercice_11.dart';
 import 'package:flutter/material.dart';
 
 class ExerciceDetailScreen extends StatefulWidget {
@@ -122,130 +123,14 @@ class _ExerciceDetailScreenState extends State<ExerciceDetailScreen> {
       case 9:
         return Expanded(child: Exercice09());
       case 10:
-        return Expanded(child: exercice10());
+        return Expanded(child: Exercice10());
       case 11:
-        return Expanded(child: exercice11());
+        return Expanded(child: Exercice11());
       case 12:
         return Expanded(child: exercice12());
       default:
         return Center(child: Text('No hay contenido para este ejercicio'));
     }
-  }
-
-  String textToMorse(String input) {
-    final Map<String, String> reverseMorse = morseCode.map(
-      (key, value) => MapEntry(value, key),
-    );
-
-    if (input.contains('.') || input.contains('-')) {
-      return input
-          .split('  ')
-          .map(
-            (word) =>
-                word.split(' ').map((char) => reverseMorse[char] ?? '').join(),
-          )
-          .join(' ');
-    } else {
-      return input
-          .toUpperCase()
-          .split('')
-          .map((char) => morseCode[char] ?? '')
-          .join(' ');
-    }
-  }
-
-  String morseResult = "";
-  TextEditingController morseController = TextEditingController();
-
-  exercice10() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Conversión de Texto a Código Morse y Viceversa',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 10),
-        TextField(
-          controller: morseController,
-          decoration: InputDecoration(
-            labelText: 'Ingrese texto o código morse',
-            border: OutlineInputBorder(),
-          ),
-        ),
-        const SizedBox(height: 10),
-        ElevatedButton(
-          onPressed: () {
-            setState(() {
-              morseResult = textToMorse(morseController.text);
-            });
-          },
-          child: const Text('Convertir'),
-        ),
-        const SizedBox(height: 10),
-        if (morseResult.isNotEmpty)
-          Text(
-            'Resultado: $morseResult',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-      ],
-    );
-  }
-
-  bool isBalanced(String expression) {
-    List<String> stack = [];
-    Map<String, String> pairs = {')': '(', ']': '[', '}': '{'};
-
-    for (var char in expression.split('')) {
-      if (pairs.values.contains(char)) {
-        stack.add(char);
-      } else if (pairs.keys.contains(char)) {
-        if (stack.isEmpty || stack.removeLast() != pairs[char]) {
-          return false;
-        }
-      }
-    }
-    return stack.isEmpty;
-  }
-
-  String balanceResult = "";
-  TextEditingController balanceController = TextEditingController();
-  exercice11() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Verificar Balanceo de Expresiones',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 10),
-        TextField(
-          controller: balanceController,
-          decoration: InputDecoration(
-            labelText: 'Ingrese la expresión',
-            border: OutlineInputBorder(),
-          ),
-        ),
-        const SizedBox(height: 10),
-        ElevatedButton(
-          onPressed: () {
-            setState(() {
-              balanceResult =
-                  isBalanced(balanceController.text)
-                      ? "La expresión está balanceada"
-                      : "La expresión NO está balanceada";
-            });
-          },
-          child: const Text('Verificar'),
-        ),
-        const SizedBox(height: 10),
-        if (balanceResult.isNotEmpty)
-          Text(
-            'Resultado: $balanceResult',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-      ],
-    );
   }
 
   List<String> findUniqueCharacters(String str1, String str2) {
