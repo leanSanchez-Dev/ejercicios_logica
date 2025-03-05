@@ -4,6 +4,7 @@ import 'package:ejercicios_logica/pages/excercices/exercice_03.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_04.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_05.dart';
 import 'package:ejercicios_logica/pages/excercices/exercice_06.dart';
+import 'package:ejercicios_logica/pages/excercices/exercice_07.dart';
 import 'package:ejercicios_logica/utils/data/morse_code.dart';
 
 import 'package:ejercicios_logica/models/exercice.dart';
@@ -113,7 +114,7 @@ class _ExerciceDetailScreenState extends State<ExerciceDetailScreen> {
       case 6:
         return Expanded(child: Exercice06());
       case 7:
-        return Expanded(child: exercice7());
+        return Expanded(child: Exercice07());
       case 8:
         return Expanded(child: exercice8());
       case 9:
@@ -127,52 +128,6 @@ class _ExerciceDetailScreenState extends State<ExerciceDetailScreen> {
       default:
         return Center(child: Text('No hay contenido para este ejercicio'));
     }
-  }
-
-  String reverseString(String text) {
-    String reversed = "";
-    for (int i = text.length - 1; i >= 0; i--) {
-      reversed += text[i];
-    }
-    return reversed;
-  }
-
-  TextEditingController textController = TextEditingController();
-  String reversedText = "";
-
-  exercice7() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Invertir una cadena de texto',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 10),
-        TextField(
-          controller: textController,
-          decoration: InputDecoration(
-            labelText: 'Ingrese el texto',
-            border: OutlineInputBorder(),
-          ),
-        ),
-        const SizedBox(height: 10),
-        ElevatedButton(
-          onPressed: () {
-            setState(() {
-              reversedText = reverseString(textController.text);
-            });
-          },
-          child: const Text('Invertir Texto'),
-        ),
-        const SizedBox(height: 10),
-        if (reversedText.isNotEmpty)
-          Text(
-            'Texto Invertido: $reversedText',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-      ],
-    );
   }
 
   Map<String, int> countWords(String text) {
