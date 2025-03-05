@@ -1,6 +1,6 @@
 # 🚀 Ejercicios de Lógica en Programación
 
-📌 **Repositorio con soluciones a los ejercicios de lógica de programación** del sitio [Retos de Programación](https://retosdeprogramacion.com/ejercicios/) de **Brais Moure**.
+📌 **Repositorio con soluciones a los ejercicios de lógica de programación** del sitio [Retos de Programación](https://retosdeprogramacion.com/ejercicios/) de **Brais Moure** [@mouredev](https://moure.dev/).
 
 🎯 **Objetivo:** Mejorar mis habilidades de resolución de problemas y fortalecer mis conocimientos en lógica de programación.
 
@@ -20,7 +20,7 @@ _(Se irán actualizando a medida que avance en los ejercicios.)_
 
 ## 🛠️ Tecnologías Usadas
 
-- Lenguajes: Python, JavaScript, C++, etc.
+- Lenguajes: Flutter, Dart.
 - Herramientas: Git, GitHub, VS Code
 
 ## 📌 Cómo Clonar el Repositorio
